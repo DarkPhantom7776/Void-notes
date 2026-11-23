@@ -1,0 +1,58 @@
+﻿---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<!doctype html>
+<html lang="es">
+<head>
+<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+</head>
+<body>
+<Header />
+<main>
+<section style="margin-bottom: 3rem;">
+<p style="color: #22c55e; font-size: 0.85rem; margin-bottom: 0.5rem;">// SYSTEM_STATUS: ONLINE</p>
+<h1>Bienvenido a void-notes</h1>
+<p>
+Un espacio digital para ideas crudas, opiniones controversiales y pensamientos aleatorios 
+escritos sin filtro antes de que se pierdan.
+</p>
+<blockquote>
+"No busco tener la razón siempre; busco pensar en voz alta sin pedir permiso."
+</blockquote>
+</section>
+
+<hr />
+
+<section>
+<h2>Últimas entradas</h2>
+<ul style="list-style: none; padding: 0; margin-top: 1.5rem;">
+{
+posts.map((post) => (
+<li style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #27272a;">
+<a href={`/blog/${post.id}/`} style="display: block;">
+<span style="font-size: 0.85rem; color: #a1a1aa;">
+[{post.data.pubDate.toISOString().slice(0, 10)}]
+</span>
+<h3 style="margin: 0.25rem 0; font-size: 1.2rem;">{post.data.title}</h3>
+<p style="margin: 0; font-size: 0.95rem; color: #a1a1aa;">
+{post.data.description}
+</p>
+</a>
+</li>
+))
+}
+</ul>
+</section>
+</main>
+<Footer />
+</body>
+</html>
