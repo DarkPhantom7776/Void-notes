@@ -1,8 +1,3 @@
-Primera prueba en el vacío,
-versos sueltos sin contexto ni hilo.
-
----
-
 Mi nombre es Abiexer y soy esquizofrenico
 No lo digo tan enserio sino en termino
 No me gustan las alturas ni el mundo biologico
