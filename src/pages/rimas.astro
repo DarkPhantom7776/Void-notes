@@ -1,0 +1,71 @@
+﻿---
+import fs from 'node:fs';
+import path from 'node:path';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const filePath = path.join(process.cwd(), 'src', 'data', 'rimas.md');
+const raw = fs.readFileSync(filePath, 'utf-8');
+const piezas = raw
+  .split(/\r?\n---\r?\n/)
+  .map((p) => p.trim())
+  .filter(Boolean)
+  .reverse();
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <BaseHead
+      title="Rimas — Void Notes"
+      description="No todo lo que pienso necesita explicación, ni todo lo que escribo pretende tener sentido."
+    />
+    <style>
+      main {
+        max-width: 62ch;
+        margin: 0 auto;
+        padding: 3rem 1.5rem 5rem;
+      }
+      .rimas-intro {
+        margin-bottom: 2.5rem;
+        padding-bottom: 1.75rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        font-style: italic;
+        opacity: 0.78;
+        line-height: 1.65;
+      }
+      .rima-block {
+        white-space: pre-wrap;
+        line-height: 1.85;
+        margin: 2.5rem 0;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      }
+      .rima-divider {
+        border: 0;
+        margin: 2.5rem 0;
+        color: var(--accent, #22c55e);
+      }
+      .rima-divider::before {
+        content: "//";
+        opacity: 0.65;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <p class="rimas-intro">
+        No todo lo que pienso necesita explicación, ni todo lo que escribo pretende tener sentido.
+      </p>
+
+      {piezas.map((verso, index) => (
+        <>
+          <article class="rima-block">{verso}</article>
+          {index < piezas.length - 1 && <hr class="rima-divider" />}
+        </>
+      ))}
+    </main>
+    <Footer />
+  </body>
+</html>
