@@ -1,9 +1,13 @@
 ﻿---
+import Subscribe from './Subscribe.astro';
 const today = new Date();
 ---
 
 <footer>
-<div style="text-align: center; padding: 2rem 1rem;">
-&copy; {today.getFullYear()} void-notes // Pensamientos sin filtro.
-</div>
+  <div style="padding: 0 1.5rem;">
+    <Subscribe />
+  </div>
+  <div style="text-align: center; padding: 2rem 1rem;">
+    &copy; {today.getFullYear()} void-notes // Pensamientos sin filtro.
+  </div>
 </footer>

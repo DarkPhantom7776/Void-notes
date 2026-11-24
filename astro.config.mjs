@@ -1,4 +1,4 @@
-// @ts-check
+﻿// @ts-check
 
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
+  site: 'https://void-notes-7776.vercel.app',
   integrations: [mdx(), sitemap()],
 
   fonts: [

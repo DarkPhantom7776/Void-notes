@@ -1,0 +1,71 @@
+﻿<section class="subscribe-wrapper">
+  <form
+    action="https://buttondown.com/api/emails/embed-subscribe/Abiexer"
+    method="post"
+    target="popupwindow"
+    class="subscribe-form"
+  >
+    <label for="bd-email" class="subscribe-label">
+      // recibir nuevos ensayos y resumen de rimas
+    </label>
+    <div class="subscribe-row">
+      <input
+        type="email"
+        name="email"
+        id="bd-email"
+        placeholder="tu@correo.com"
+        required
+      />
+      <button type="submit">suscribirme</button>
+    </div>
+  </form>
+</section>
+
+<style>
+  .subscribe-wrapper {
+    max-width: 62ch;
+    margin: 3rem auto 1rem;
+    padding: 1.5rem 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+  .subscribe-label {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.75;
+    margin-bottom: 0.85rem;
+  }
+  .subscribe-row {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .subscribe-row input {
+    flex: 1;
+    min-width: 220px;
+    padding: 0.6rem 0.85rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: var(--text-color, #e4e4e7);
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+  }
+  .subscribe-row input:focus {
+    border-color: var(--accent, #22c55e);
+  }
+  .subscribe-row button {
+    padding: 0.6rem 1.1rem;
+    background: transparent;
+    border: 1px solid var(--accent, #22c55e);
+    color: var(--accent, #22c55e);
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .subscribe-row button:hover {
+    background: var(--accent, #22c55e);
+    color: #09090b;
+  }
+</style>
